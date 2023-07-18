@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux';
 import Countries from '../Countries/Countries';
 import{getCountries} from "../redux/actions";
 import { useDispatch } from 'react-redux';
-import { Oval as Loader } from 'react-loader-spinner';
+import { Oval } from 'react-loader-spinner';
+
 
 const SearchBar = () => {
   const paisesNombre = useSelector((state) => state.filtered);
@@ -60,7 +61,7 @@ return (
     <div className='containerSearchBar'>
       {loading ? ( // Muestra el Loader si loading es true
         <div className="loader-container">
-          <Loader type="Oval" color="#00BFFF" height={80} width={80} />
+         <Oval type="Oval" color="#00BFFF" height={80} width={80} />
         </div>
       ) : (
         <div>

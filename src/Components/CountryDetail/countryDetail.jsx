@@ -3,14 +3,14 @@ import { useDispatch, useSelector} from 'react-redux';
 import {getDetail, getActivities} from "../redux/actions"
 import { useParams } from 'react-router-dom';
 import "./countryDetail.css"
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import ActivityList from "../ActivityList/ActivityList.jsx";
 
 const CountryDetail = () => {
   const dispatch = useDispatch();
   const {idPais} = useParams();
   const pais = useSelector(state => state.details);
-  const history = useHistory();
+  const history = useNavigate();
   const actividades = useSelector(state => state.activities);
 
   useEffect(() =>{ 
@@ -36,7 +36,7 @@ const CountryDetail = () => {
           <p>Area: {pais.area}</p>
           <p>Poblation: {pais.population}</p>
           {pais.activities.length > 0 && <ActivityList activities={pais.activities} />}
-          <button className='botonDetail' onClick={() => history.goBack()}>Regresar</button>
+          <button className='botonDetail' onClick={() => history(`/home`)}>Regresar</button>
       </div>
       </div>
 

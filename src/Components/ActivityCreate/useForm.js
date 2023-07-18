@@ -1,14 +1,15 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import {postActivities} from "../redux/actions";
 import { useHistory } from 'react-router-dom';
-import {postActivities} from "../redux/actions"
 
 
 export const useForm = ( initialForm, validateForm ) => {
     const [form, setForm] = useState(initialForm);
     const [errors, setErrors] = useState({});
     const dispatch = useDispatch();
-    const history = useHistory();
+    const history = useNavigate();
     const [Paises, setPaises] = useState([]);
 
     const Quitar = (id) =>{
@@ -37,9 +38,7 @@ export const useForm = ( initialForm, validateForm ) => {
         setErrors(validateForm(form));
 
         if (form.name && form.difficulty && form.duration && form.season && form.countryId && Object.keys(errors).length === 0) {
-
            dispatch(postActivities({...form, countryId: Paises}));
-
             alert('Actividad creada');
             setForm(initialForm);
             history.push("/home");

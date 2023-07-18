@@ -6,11 +6,12 @@ import HTML from "../../Img/HTML.png"
 import React from "../../Img/React.jpg"
 import Post from "../../Img/Post.png"
 import Java from "../../Img/Java.png"
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 import "./About.css"
 
 export default function About() {
-    const history = useHistory();
+    const history = useNavigate();
     return (
            <div className="bodyAbout ">
             <div className="containerAbout">
@@ -23,7 +24,7 @@ export default function About() {
                         de Henry y en esta app utilice todo <br /> lo aprendido
                         en el Boodcamp." </p>
                     <h5>Titulo "Programador Superior"</h5>
-                    <button  onClick={() => history.goBack()}>Regresar</button>                   
+                    <button  onClick={() => history(`/home`)}>Regresar</button>                   
                  
                     <div className="tech-containerAbout">
                  <div className="tech-container img ">

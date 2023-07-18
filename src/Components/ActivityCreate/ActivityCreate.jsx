@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import {AUTUMN, SPRING, SUMMER, WINTER } from "../redux/action-types"
 import { useForm } from './useForm';
 import './ActivityCreate.css';
-import { useHistory} from 'react-router-dom';
+import { useNavigate} from 'react-router-dom';
 import imagenTuristica from "../../Img/imagenTuristica.jpg"
 import imagenTuristica1 from "../../Img/imagenTuristica1.jpg"
 
@@ -46,7 +46,7 @@ const ActivityCreate = () => {
         Quitar
     } = useForm(initialForm, validationsForm)
 
-    const history = useHistory();
+    const history = useNavigate();
 
    return (
     
@@ -137,7 +137,7 @@ const ActivityCreate = () => {
                                  </div>
                               
                     <div>
-                    <button className='botomRegresar' onClick={() => history.goBack()}>Regresar</button>
+                    <button className='botomRegresar' onClick={() => history(`/home`)}>Regresar</button>
                     </div>
                  </div>
             </div>
